@@ -39,7 +39,7 @@ docker compose exec app php artisan test
 
 ```
 
- - Collection postaman em : unicred-php/UNICRED.postman_collection.json
+ - Collection postaman em : UNICRED.postman_collection.json
 
  #### exemplo de payload 
  {

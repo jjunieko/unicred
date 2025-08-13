@@ -18,7 +18,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"nome\": \"Fulano de Tal 2\",\n  \"cpfCnpj\": \"997.504.370-47\",\n  \"data\": \"1990-01-03\",\n  \"rendaFaturamento\": 12000.50,\n  \"telefone\": \"+55 (41) 3344-1234\",\n  \"email\": \"fulano@ex.com.br\"\n}",
+					"raw": "{\n  \"nome\": \"Fulano de Tal 3\",\n  \"cpfCnpj\": \"997.504.370-47\",\n  \"data\": \"1990-01-03\",\n  \"rendaFaturamento\": 12000.50,\n  \"telefone\": \"+55 (41) 3344-1234\",\n  \"email\": \"fulano@ex.com.br\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -32,6 +32,41 @@
 						"localhost"
 					],
 					"port": "8080",
+					"path": [
+						"api",
+						"cooperados"
+					]
+				},
+				"description": "Generated from cURL: curl -s -X POST http://localhost:8080/api/cooperados \\\n -H \"Content-Type: application/json\" \\\n -d '{\n  \"nome\": \"Fulano\",\n  \"cpfCnpj\": \"111.444.777-35\",\n  \"data\": \"1990-01-01\",\n  \"rendaFaturamento\": 12000.50,\n  \"telefone\": \"+55 (41) 98888-7777\",\n  \"email\": \"fulano@ex.com\"\n}'"
+			},
+			"response": []
+		},
+		{
+			"name": "Create - Java",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"nome\": \"Fulano de Tal java 1\",\n  \"cpfCnpj\": \"579.782.900-26\",\n  \"data\": \"1990-01-03\",\n  \"rendaFaturamento\": 12000.50,\n  \"telefone\": \"+55 (41) 3344-1234\",\n  \"email\": \"fulano@ex.com.br\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/cooperados",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
 					"path": [
 						"api",
 						"cooperados"
@@ -98,12 +133,33 @@
 			"response": []
 		},
 		{
+			"name": "Listar Java",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/api/cooperados",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"cooperados"
+					]
+				},
+				"description": "Generated from cURL: curl -s http://localhost:8080/api/cooperados\n"
+			},
+			"response": []
+		},
+		{
 			"name": "Buscar",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/api/cooperados/9d9aa0a8-40c9-4a3b-9fef-ece67a247823",
+					"raw": "http://localhost:8080/api/cooperados/4893ed2c-dc5e-4500-8716-378e84f076ca",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -112,7 +168,29 @@
 					"path": [
 						"api",
 						"cooperados",
-						"9d9aa0a8-40c9-4a3b-9fef-ece67a247823"
+						"4893ed2c-dc5e-4500-8716-378e84f076ca"
+					]
+				},
+				"description": "Generated from cURL: curl -s http://localhost:8080/api/cooperados/<ID_DO_FULANO>\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar Java",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/api/cooperados/76bfedcf-df4b-4a95-a7d5-5e26392852cf",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"cooperados",
+						"76bfedcf-df4b-4a95-a7d5-5e26392852cf"
 					]
 				},
 				"description": "Generated from cURL: curl -s http://localhost:8080/api/cooperados/<ID_DO_FULANO>\n"
@@ -131,7 +209,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"telefone\": \"5541999990000\",\n    \"nome\": \"Fulano de tal 1\"\n}",
+					"raw": "{\n    \"telefone\": \"5541999990000\",\n    \"nome\": \"Fulano de tal 2\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -139,7 +217,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/api/cooperados/9d9aa0a8-40c9-4a3b-9fef-ece67a247823",
+					"raw": "http://localhost:8080/api/cooperados/4893ed2c-dc5e-4500-8716-378e84f076ca",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -148,7 +226,43 @@
 					"path": [
 						"api",
 						"cooperados",
-						"9d9aa0a8-40c9-4a3b-9fef-ece67a247823"
+						"4893ed2c-dc5e-4500-8716-378e84f076ca"
+					]
+				},
+				"description": "Generated from cURL: curl -s -X PUT http://localhost:8080/api/cooperados/<ID_DO_FULANO> \\\n -H \"Content-Type: application/json\" \\\n -d '{\"telefone\": \"5541999990000\"}'\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Update java",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"telefone\": \"5541999990000\",\n    \"nome\": \"Fulano de tal para java2\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/cooperados/76bfedcf-df4b-4a95-a7d5-5e26392852cf",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"cooperados",
+						"76bfedcf-df4b-4a95-a7d5-5e26392852cf"
 					]
 				},
 				"description": "Generated from cURL: curl -s -X PUT http://localhost:8080/api/cooperados/<ID_DO_FULANO> \\\n -H \"Content-Type: application/json\" \\\n -d '{\"telefone\": \"5541999990000\"}'\n"
@@ -202,6 +316,28 @@
 						"localhost"
 					],
 					"port": "8080",
+					"path": [
+						"api",
+						"cooperados",
+						"f2bb4012-c1cd-417d-b060-0dc5a3456a7c"
+					]
+				},
+				"description": "Generated from cURL: curl -s -o /dev/null -w \"%{http_code}\\n\" -X DELETE http://localhost:8080/api/cooperados/<ID_DO_FULANO>\n# Esperado: 204\n\ncurl -s -o /dev/null -w \"%{http_code}\\n\" http://localhost:8080/api/cooperados/<ID_DO_FULANO>\n# Esperado: 404\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Deletar Java",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/api/cooperados/f2bb4012-c1cd-417d-b060-0dc5a3456a7c",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
 					"path": [
 						"api",
 						"cooperados",

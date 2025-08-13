@@ -61,7 +61,7 @@ public class Cooperado {
     @Column(name="deleted_at")
     private OffsetDateTime deletedAt;
 
-    protected Cooperado() { } // JPA
+    protected Cooperado() { }
 
     public static Cooperado of(String nome, CpfCnpj doc, LocalDate data, BigDecimal renda,
                                Telefone tel, Email emailOpt) {
