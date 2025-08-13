@@ -1,0 +1,102 @@
+# services:
+#   app:
+#     build:
+#       context: .
+#       dockerfile: docker/php/Dockerfile
+#     container_name: unicred-php-app
+#     volumes:
+#       - ./:/var/www/html
+#     depends_on:
+#       - db
+#     env_file:
+#       - .env
+#   web:
+#     image: nginx:stable
+#     container_name: unicred-nginx
+#     ports:
+#       - "8080:80"
+#     volumes:
+#       - ./:/var/www/html
+#       - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+#     depends_on:
+#       - app
+#   db:
+#     image: mysql:8.0
+#     container_name: unicred-db
+#     environment:
+#       MYSQL_ROOT_PASSWORD: root
+#       MYSQL_DATABASE: unicred
+#       MYSQL_USER: unicred
+#       MYSQL_PASSWORD: unicred
+#     ports:
+#       - "3307:3306"
+#     volumes:
+#       - dbdata:/var/lib/mysql
+# volumes:
+#   dbdata:
+
+
+# services:
+#   db:
+#     image: mysql:8.0
+#     environment:
+#       MYSQL_DATABASE: unicred
+#       MYSQL_USER: unicred
+#       MYSQL_PASSWORD: unicred
+#       MYSQL_ROOT_PASSWORD: root
+#     ports:
+#       - "3307:3306"         # acesso pela máquina (fora do Docker)
+#     volumes:
+#       - dbdata:/var/lib/mysql
+#     healthcheck:
+#       test: ["CMD-SHELL", "mysqladmin ping -h localhost -u$$MYSQL_USER -p$$MYSQL_PASSWORD || exit 1"]
+#       interval: 5s
+#       timeout: 5s
+#       retries: 10
+
+#   # seu app PHP (exemplo)
+#   app:
+#     build:
+#       context: .
+#       dockerfile: Dockerfile
+#     environment:
+#       DB_CONNECTION: mysql
+#       DB_HOST: db
+#       DB_PORT: 3306
+#       DB_DATABASE: unicred
+#       DB_USERNAME: unicred
+#       DB_PASSWORD: unicred
+#     depends_on:
+#       db:
+#         condition: service_healthy
+
+#   # seu nginx do PHP (exemplo)
+#   web:
+#     image: nginx:alpine
+#     ports:
+#       - "8080:80"
+#     volumes:
+#       - ./:/var/www/html
+#       - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+#     depends_on:
+#       - app
+
+#   # >>> NOVO: API Java
+#   java-api:
+#     build:
+#       context: ./java-api          # pasta do projeto Java dentro de unicred-php
+#     environment:
+#       DB_HOST: db                  # mesmo host interno do compose
+#       DB_PORT: 3306
+#       DB_NAME: unicred
+#       DB_USER: unicred
+#       DB_PASS: unicred
+#     ports:
+#       - "8081:8081"                # expõe a API Java
+#     depends_on:
+#       db:
+#         condition: service_healthy
+#     restart: unless-stopped
+
+# volumes:
+#   dbdata:

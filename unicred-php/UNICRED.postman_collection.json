@@ -1,0 +1,216 @@
+{
+	"info": {
+		"_postman_id": "c514693c-c52b-483c-8c1c-0d4cdc21ef2a",
+		"name": "UNICRED",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29304748"
+	},
+	"item": [
+		{
+			"name": "Create",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"nome\": \"Fulano de Tal 2\",\n  \"cpfCnpj\": \"997.504.370-47\",\n  \"data\": \"1990-01-03\",\n  \"rendaFaturamento\": 12000.50,\n  \"telefone\": \"+55 (41) 3344-1234\",\n  \"email\": \"fulano@ex.com.br\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/cooperados",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"cooperados"
+					]
+				},
+				"description": "Generated from cURL: curl -s -X POST http://localhost:8080/api/cooperados \\\n -H \"Content-Type: application/json\" \\\n -d '{\n  \"nome\": \"Fulano\",\n  \"cpfCnpj\": \"111.444.777-35\",\n  \"data\": \"1990-01-01\",\n  \"rendaFaturamento\": 12000.50,\n  \"telefone\": \"+55 (41) 98888-7777\",\n  \"email\": \"fulano@ex.com\"\n}'"
+			},
+			"response": []
+		},
+		{
+			"name": "Duplicidade",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"nome\": \"Outro\",\n  \"cpfCnpj\": \"111.444.777-35\",\n  \"data\": \"1980-05-10\",\n  \"rendaFaturamento\": 9000,\n  \"telefone\": \"5541999990000\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/cooperados",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"cooperados"
+					]
+				},
+				"description": "Generated from cURL: curl -s -o /dev/null -w \"%{http_code}\\n\" -X POST http://localhost:8080/api/cooperados \\\n -H \"Content-Type: application/json\" \\\n -d '{\n  \"nome\": \"Outro\",\n  \"cpfCnpj\": \"111.444.777-35\",\n  \"data\": \"1980-05-10\",\n  \"rendaFaturamento\": 9000,\n  \"telefone\": \"5541999990000\"\n}'\n# Esperado: 409\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Listar",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/cooperados",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"cooperados"
+					]
+				},
+				"description": "Generated from cURL: curl -s http://localhost:8080/api/cooperados\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/cooperados/9d9aa0a8-40c9-4a3b-9fef-ece67a247823",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"cooperados",
+						"9d9aa0a8-40c9-4a3b-9fef-ece67a247823"
+					]
+				},
+				"description": "Generated from cURL: curl -s http://localhost:8080/api/cooperados/<ID_DO_FULANO>\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Update",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"telefone\": \"5541999990000\",\n    \"nome\": \"Fulano de tal 1\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/cooperados/9d9aa0a8-40c9-4a3b-9fef-ece67a247823",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"cooperados",
+						"9d9aa0a8-40c9-4a3b-9fef-ece67a247823"
+					]
+				},
+				"description": "Generated from cURL: curl -s -X PUT http://localhost:8080/api/cooperados/<ID_DO_FULANO> \\\n -H \"Content-Type: application/json\" \\\n -d '{\"telefone\": \"5541999990000\"}'\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Outro_PJ",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"nome\": \"Empresa X\",\n  \"cpfCnpj\": \"73.060.376/0001-65\",\n  \"data\": \"2010-02-01\",\n  \"rendaFaturamento\": 100000.00,\n  \"telefone\": \"+55 11 98888-1111\",\n  \"email\": \"contato@empresa.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/cooperados",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"cooperados"
+					]
+				},
+				"description": "Generated from cURL: curl -s -X POST http://localhost:8080/api/cooperados \\\n -H \"Content-Type: application/json\" \\\n -d '{\n  \"nome\": \"Empresa X\",\n  \"cpfCnpj\": \"19.100.064/0001-70\",\n  \"data\": \"2010-02-01\",\n  \"rendaFaturamento\": 100000.00,\n  \"telefone\": \"+55 11 98888-1111\",\n  \"email\": \"contato@empresa.com\"\n}'\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Deletar",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/cooperados/f2bb4012-c1cd-417d-b060-0dc5a3456a7c",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"cooperados",
+						"f2bb4012-c1cd-417d-b060-0dc5a3456a7c"
+					]
+				},
+				"description": "Generated from cURL: curl -s -o /dev/null -w \"%{http_code}\\n\" -X DELETE http://localhost:8080/api/cooperados/<ID_DO_FULANO>\n# Esperado: 204\n\ncurl -s -o /dev/null -w \"%{http_code}\\n\" http://localhost:8080/api/cooperados/<ID_DO_FULANO>\n# Esperado: 404\n"
+			},
+			"response": []
+		}
+	]
+}

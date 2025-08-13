@@ -1,0 +1,77 @@
+# =========================
+# Globais / OS / IDEs
+# =========================
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.iml
+*.iws
+*.log
+*.orig
+*.swp
+*.swo
+
+
+docker-compose.override.yml
+*.env
+.env
+.env.*
+
+# =========================
+# PHP / Laravel (unicred-php)
+# =========================
+unicred-php/vendor/
+unicred-php/node_modules/
+
+
+unicred-php/.env
+unicred-php/.env.*
+unicred-php/.phpunit.result.cache
+unicred-php/.php-cs-fixer.cache
+unicred-php/_ide_helper.php
+unicred-php/_ide_helper_models.php
+
+
+unicred-php/storage/*.key
+unicred-php/storage/app/*
+unicred-php/storage/app/public/*
+unicred-php/storage/framework/cache/data/*
+unicred-php/storage/framework/sessions/*
+unicred-php/storage/framework/testing/*
+unicred-php/storage/framework/views/*
+unicred-php/storage/logs/*
+
+unicred-php/bootstrap/cache/*.php
+!unicred-php/bootstrap/cache/.gitignore
+
+unicred-php/public/storage
+
+# =========================
+# Java / Spring Boot (java-api)
+# =========================
+java-api/target/
+java-api/out/
+java-api/build/
+java-api/dist/
+java-api/classes/
+java-api/*.log
+java-api/hs_err_pid*.log
+java-api/replay_pid*.log
+java-api/*.hprof
+
+java-api/*.jar
+java-api/*.war
+java-api/*.ear
+
+java-api/target/surefire-reports/
+java-api/target/failsafe-reports/
+java-api/target/site/
+
+java-api/.mvn/timing.properties
+!java-api/.mvn/wrapper/maven-wrapper.jar
+
+java-api/.idea/
+java-api/*.iml
+unicred-php/.idea/
+unicred-php/*.iml
