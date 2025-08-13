@@ -30,8 +30,6 @@ docker compose exec db mysql -u unicred -punicred -e "USE unicred; SHOW TABLES L
 #testar
 cd java-api
 ./mvnw test
-# se for container 
-docker run --rm -v "$PWD/java-api":/app -w /app maven:3.9.8-eclipse-temurin-21 mvn -q test
 
 # php 
 cd unicred-php
